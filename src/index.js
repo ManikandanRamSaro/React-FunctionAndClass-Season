@@ -9,14 +9,9 @@ class App extends React.Component{
         super(props);
         this.state={ lat : null, errorMessage:''};
 
-        window.navigator.geolocation.getCurrentPosition(
-            (position) => {
-                this.setState({lat:position.coords.latitude});
-            },
-            (err) => {
-                this.setState({errorMessage:err.message});
-            });
+       
     }
+
     render()
     {
         if(this.state.errorMessage && !this.state.lat)
@@ -30,5 +25,14 @@ class App extends React.Component{
 
         return <div>Loading - this will show as default and removed automcatically (not called) when given condiction executed</div>
     }
+
+    componentDidMount()
+    { 
+        window.navigator.geolocation.getCurrentPosition(
+        (position) => this.setState({lat:position.coords.latitude}),
+        (err) => this.setState({errorMessage:err.message})
+        );
+    } 
+    
 }
 ReactDOM.render(<App/>,document.querySelector("#root"));
