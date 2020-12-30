@@ -33,3 +33,7 @@
 .season-display.Summer i{
     color:orange;
 }
+
+.set-border{
+    border: 10px solid orange;
+}
