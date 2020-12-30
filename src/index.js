@@ -16,7 +16,7 @@ class App extends React.Component{
         (err) => this.setState({errorMessage:err.message})
         );
     } 
-    
+        
     helperRenderMethod()
     {
         if(this.state.errorMessage && !this.state.lat)
